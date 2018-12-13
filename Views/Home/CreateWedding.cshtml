@@ -1,0 +1,54 @@
+@using wedding_planner.Models
+@model NewWedding
+
+@{
+    ViewData["Title"] = "Create New Wedding";
+}
+
+<h1>Plan Your Wedding</h1>
+<div class="new-wedding">
+  <form asp-action="ProccessWedding" asp-controller="Home" class="form">
+    <input type="hidden" asp-for="UserId" value="1">
+    <div class="form__row">
+      <label asp-for="WedderOne" class="form__label">Wedder One:</label>
+      <input asp-for="WedderOne" class="form__input" placeholder="Who proposed">
+    </div>
+    <div class="form__row">
+      <label asp-for="WedderTwo" class="form__label">Wedder Two:</label>
+      <input asp-for="WedderTwo" class="form__input" placeholder="Who said yes">
+    </div>
+    <div class="form__row">
+      <label asp-for="Date" class="form__label">Date:</label>
+      <input type="date" asp-for="Date" class="form__input">
+    </div>
+    <div class="form__row">
+      <h4>Address</h4>
+    </div>
+    <div class="form__row">
+      <label asp-for="Street" class="form__label">Street:</label>
+      <input asp-for="Street" class="form__input">
+    </div>
+    <div class="form__row">
+      <label asp-for="City" class="form__label">City:</label>
+      <input asp-for="City" class="form__input">
+    </div>
+    <div class="form__row">
+      <label asp-for="State" class="form__label">State:</label>
+      <input asp-for="State" class="form__input" placeholder="e.g. WA">
+    </div>
+    <div class="form__row">
+      <label asp-for="Zip" class="form__label">Zip Code:</label>
+      <input asp-for="Zip" class="form__input" placeholder="e.g. 91809">
+    </div>
+    <button>Create Wedding</button>
+  </form>
+  <div class="errors">
+    <span asp-validation-for="WedderOne"></span>
+    <span asp-validation-for="WedderTwo"></span>
+    <span asp-validation-for="Date"></span>
+    <span asp-validation-for="Street"></span>
+    <span asp-validation-for="City"></span>
+    <span asp-validation-for="State"></span>
+    <span asp-validation-for="Zip"></span>
+  </div>
+</div>

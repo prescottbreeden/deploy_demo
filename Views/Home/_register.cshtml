@@ -1,0 +1,32 @@
+@using wedding_planner.Models
+@model User
+
+<div class="register">
+  <h2>Sign up!</h2>
+  <p>Let's get someone married!</p>
+  <form asp-action="Register" asp-controller="Home" class="form">
+    <div class="form__row">
+      <label asp-for="name">Name:</label>
+      <input asp-for="name" class="form__input">
+    </div>
+    <div class="form__row">
+      <label asp-for="email">Email:</label>
+      <input asp-for="email" class="form__input">
+    </div>
+    <div class="form__row">
+      <label asp-for="password">Password:</label>
+      <input asp-for="password" class="form__input">
+    </div>
+    <div class="form__row">
+      <label asp-for="confirm">Confirm:</label>
+      <input asp-for="confirm" class="form__input">
+    </div>
+    <button>Submit</button>
+  </form>
+  <div class="errors">
+    <span asp-validation-for="name"></span>
+    <span asp-validation-for="email"></span>
+    <span asp-validation-for="password"></span>
+    <span asp-validation-for="confirm"></span>
+  </div>
+</div>

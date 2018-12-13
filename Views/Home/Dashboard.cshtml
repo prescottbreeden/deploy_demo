@@ -1,0 +1,23 @@
+@model List<Wedding>
+@{
+    ViewData["Title"] = "Dashboard";
+}
+<h1>Welcome to Wedding Planner</h1>
+<div class="dashboard__container">
+    <div class="weddings__list">
+    @{
+        foreach(Wedding wedding in @Model)
+        {
+            <div class="dashboard__row">
+                <p>@wedding.wedder_one & @wedding.wedder_two</p>
+                <p>@wedding.wedding_date</p>
+                <p>Guest #</p>
+                <p>Actions</p>
+            </div>
+        }
+    }
+    </div>
+    <a 
+        class="dashboard__btn"
+        href="/new">New Wedding</a>
+</div>

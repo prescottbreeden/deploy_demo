@@ -1,0 +1,14 @@
+@using wedding_planner.Models
+@model List<User>
+
+<div class="all-users">
+<p>Here is a list of all users:</p>
+@{
+  foreach(User user in @Model)
+  {
+    <div class="all-users__row">
+      <p>@user.name ~~ @user.email</p>
+    </div>
+  }
+}
+</div>
