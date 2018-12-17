@@ -27,16 +27,31 @@ namespace wedding_planner.Models
     public User GetOneUser(int id)
     {
       return users.FirstOrDefault(u => u.user_id == id);
+
+      /* 
+      var query =
+        from u in users
+        where u.user_id == id
+        select u;
+      return (User)query; 
+      */
     }
 
     public User GetOneUser(string email)
     {
       return users.FirstOrDefault(u => u.email == email);
+      /*
+      var query =
+        from u in users
+        where u.email == email
+        select u;
+      return (User)query; 
+      */
     }
 
     public string LoginValidation(LoginUser user)
     {
-      var isUser = users.FirstOrDefault(u => u.email == user.LogEmail);
+      var isUser = GetOneUser(user.LogEmail);
       if(isUser is null)
       {
         return "Email not found";
@@ -74,7 +89,7 @@ namespace wedding_planner.Models
 
     public void DeleteUser(int id)
     {
-      User removeThis = users.SingleOrDefault(u => u.user_id == id);
+      User removeThis = GetOneUser(id);
       users.Remove(removeThis);
       SaveChanges();
     }
